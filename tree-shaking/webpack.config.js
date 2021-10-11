@@ -7,7 +7,19 @@ module.exports = {
     filename: "bundle.js",
   },
   module: {
-    rules: [],
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets:[
+              ['@babel/preset-env']
+            ]
+          }
+        }
+      }
+    ],
   },
   optimization: {
       // 模块只导出被使用的成员
